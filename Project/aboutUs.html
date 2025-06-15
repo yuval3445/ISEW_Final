@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - NoY Pizza</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background-image: url("imgs/pizza_background3.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+  header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(245, 235, 220, 0.85); /* light warm beige */
+  backdrop-filter: blur(4px);
+  border-bottom: 2px solid burlywood;
+}
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+  text-decoration: none;
+  color: gold;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 215, 0, 0.3);
+  color: white;
+}
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo, .cart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: burlywood;
+      font-weight: bold;
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    }
+
+    .logo img {
+      width: 100px;
+      height: auto;
+    }
+
+    .cart img {
+      width: 50px;
+      height: 55px;
+    }
+
+    main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 20px;
+      width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+    background-color:rgba(180, 180, 180, 0.4);
+      
+    }
+
+    h1#aboutTitle {
+      font-size: 48px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: antiquewhite;
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    }
+
+    #TeamL {
+      font-size: 22px;
+      color: antiquewhite;
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+      margin-bottom: 30px;
+    }
+    #usefulL{
+        font-size: 20px;
+      color: antiquewhite;
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+      margin-bottom: 30px;
+      text-decoration:none;
+    }
+    #usefulLH{
+        font-size: 24px;
+      color: antiquewhite;
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+      margin-bottom: 30px;
+      text-decoration:none;
+    }
+    #links-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #links {
+      background-color: rgba(0, 0, 0, 0.2);
+      color: antiquewhite;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      font-style: italic;
+      border-radius: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .header-right {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-around;
+      }
+
+      h1#aboutTitle {
+        font-size: 36px;
+      }
+
+      #TeamL {
+        font-size: 16px;
+        text-align: center;
+      }
+
+      #links {
+        font-size: 18px;
+      }
+    }
+    @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+  }
+
+  .header-right {
+    margin-top: 15px;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+  }
+
+  .logo img,
+  .cart img {
+    width: 70px;
+  }
+
+  #aboutTitle {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  #TeamL {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  #links {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+
+  #links-container {
+    bottom: 8px;
+    left: 8px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links a {
+    font-size: 16px;
+  }
+
+  .logo img,
+  .cart img {
+    width: 60px;
+  }
+
+  header {
+    padding: 12px 8px;
+    gap: 12px;
+  }
+
+  #aboutTitle {
+    font-size: 28px;
+  }
+
+  #TeamL {
+    font-size: 16px;
+  }
+
+  #links {
+    font-size: 16px;
+    padding: 6px 14px;
+  }
+
+  #links-container {
+    bottom: 6px;
+    left: 6px;
+    gap: 6px;
+  }
+}
+
+.wrap-iframe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.wrap-iframe iframe {
+  width: 90%;
+  max-width: 800px;
+  height: 450px;
+  border: 3px solid burlywood;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+.aboutUsP{
+   font-size: 18px;
+      color: antiquewhite;
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+      margin-bottom: 30px;  
+}
+  </style>
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="order.php">Order Now!</a>
+      <a href="TrackOrderPage.php">Track Your Order!</a>
+      <a href="aboutUs.html">About Us</a>
+      <a href="reviews.php">Reviews</a>
+      <a href="swf.php">SplitWithFriends!</a>
+    </div>
+    <div class="header-right">
+      <div class="cart">
+        <img src="imgs/Cart.png" alt="Shopping Cart">
+        <p>Cart</p>
+      </div>
+      <div class="logo">
+        <img src="imgs/pizza_logo.png" alt="NoY Pizza Logo">
+        <p>Contact us: 777777777777</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h1 id="aboutTitle">About Us:</h1>
+    <p class="aboutUsP">
+La Cucaracha Pizzeria is a vibrant and passionate local pizza spot founded by three dedicated team members — Niv, Yuval, and Oren. With a shared love for great food and community spirit, they came together to create a place where everyone can enjoy fresh, handcrafted pizzas made with high-quality ingredients and lots of heart. From classic favorites to creative topping combos, La Cucaracha blends flavor and fun in every bite, delivering not just meals, but memorable experiences. Whether you’re dining in or grabbing a slice on the go, the team at La Cucaracha is here to make sure you feel right at home.  </p>
+    <div id="TeamL">Contact the team leader: Oren Bashin · <a href="mailto:boren1009@gmail.com" style="color: antiquewhite;">boren1009@gmail.com</a></div>
+    <div id="usefulLH">Usefull links:</div><br>
+    <a id="usefulL" href="https://www.google.com/search?q=customer+service&oq=customer+sservice&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTINCAEQABiRAhiABBiKBTIJCAIQABgKGIAEMgkIAxAAGAoYgAQyCQgEEAAYChiABDIJCAUQABgKGIAEMgkIBhAAGAoYgAQyCQgHEAAYChiABDIJCAgQABgKGIAEMgkICRAAGAoYgATSAQgyMzIxajBqNKgCALACAA&sourceid=chrome&ie=UTF-8"><p>- Customer Service</p></a>
+    <a id="usefulL" href="https://explore.wolt.com/he/isr/contact?_gl=1*1b69fvt*_gcl_au*Njg4NjIyODk5LjE3NDk5ODM3OTM.*_ga*MTQ1NjE4NDcwNi4xNzQ5OTgzNzk0*_ga_CP7Z2F7NFM*czE3NDk5ODM3OTMkbzEkZzEkdDE3NDk5ODM4MTUkajM4JGwwJGgw"><p>- Wolt Delivery Service</p></a>
+    <a id="usefulL" href="https://www.happycow.net/best-vegan-restaurants/tel-aviv-israel"><p>- Vegan Pizza Place</p></a>
+
+  </main>
+  <div class="wrap-iframe">
+     
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83550.58627630075!2d20.890261097265626!3d49.12547420000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473e61a772284827%3A0x61dbb5f8e102be6f!2sLa%20Cucaracha!5e0!3m2!1sen!2sil!4v1749709452228!5m2!1sen!2sil" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+  <!-- Bottom Fixed Links -->
+  <div id="links-container">
+    <a id="links" href="yuval/YuvalPage.html">Yuval's Page</a>
+    <a id="links" href="oren/OrenPage.html">Oren's Page</a>
+    <a id="links" href="niv/NivRothmannPage.html">Niv's Page</a>
+    <a id="links" href="contact.html">Contact Us</a>
+  </div>
+</body>
+</html>

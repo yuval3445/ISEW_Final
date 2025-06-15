@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pizza Menu</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #fff8ee;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-image: url("imgs/pizza_background3.png");
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: rgba(245, 235, 220, 0.85);
+      backdrop-filter: blur(4px);
+      border-bottom: 2px solid burlywood;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: gold;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255, 215, 0, 0.3);
+      color: white;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .logo, .cart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: burlywood;
+      font-weight: bold;
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    }
+
+    .logo img {
+      width: 100px;
+      height: auto;
+    }
+
+    .cart img {
+      width: 50px;
+      height: 55px;
+    }
+
+    @media (max-width: 768px) {
+      .logo img {
+        width: 70px;
+      }
+
+      .cart img {
+        width: 70px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .nav-links a {
+        font-size: 16px;
+      }
+
+      .logo img, .cart img {
+        width: 60px;
+      }
+
+      .header-right {
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+        width: 100%;
+      }
+    }
+
+    .menu-img {
+      max-width: 95%;
+      height: auto;
+      margin-top: 30px;
+      border: 8px solid #e3c9a8;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header from isolated component -->
+  <header>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="order.php">Order Now!</a>
+      <a href="TrackOrderPage.php">Track Your Order!</a>
+      <a href="aboutUs.html">About Us</a>
+      <a href="reviews.php">Reviews</a>
+      <a href="swf.php">SplitWithFriends!</a>
+    </div>
+
+    <div class="header-right">
+      <div class="cart">
+        <img src="imgs/Cart.png" alt="Shopping Cart">
+        <p>Cart</p>
+      </div>
+      <div class="logo">
+        <img src="imgs/pizza_logo.png" alt="NoY Pizza Logo">
+        <p>Contact us: 777777777777</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu Image -->
+  <img src="imgs/Menu.png" alt="Pizza Menu" class="menu-img">
+
+</body>
+</html>

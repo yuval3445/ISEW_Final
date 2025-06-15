@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Form</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+        background-image: url("imgs/pizza_background3.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+        width: 100%;
+        direction: ltr;
+        text-align: left;
+        padding: 0;
+        margin: 0;
+    }
+
+   header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(245, 235, 220, 0.85); /* light warm beige */
+    backdrop-filter: blur(4px);
+    border-bottom: 2px solid burlywood;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: gold;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 6px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    }
+
+.nav-links a:hover {
+        background-color: rgba(255, 215, 0, 0.3);
+        color: white;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo, .cart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: burlywood;
+      font-weight: bold;
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    }
+
+    .logo img {
+      width: 100px;
+      height: auto;
+    }
+
+    .cart img {
+      width: 55px;
+      height: 55px;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 30px auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    input, textarea, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 8px;
+      border: 1px solid #a3a3a3;
+      font-size: 16px;
+    }
+
+    label {
+      margin-top: 15px;
+      display: block;
+      font-weight: bold;
+    }
+
+    button {
+      background-color: #e60000;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #b30000;
+    }
+
+    .gender-row {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+      gap: 20px;
+    }
+
+    .gender-row label {
+      margin-top: 0;
+      font-weight: normal;
+    }
+
+    .gender-row .title {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    @media (max-width: 1024px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+      }
+
+      .nav-links a {
+        font-size: 18px;
+        padding: 5px 0;
+      }
+
+      .header-right {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      form {
+        width: 90%;
+        padding: 15px;
+        margin: 20px auto;
+      }
+
+      input, textarea, select, button {
+        font-size: 16px;
+        padding: 10px;
+      }
+
+      h2 {
+        font-size: 24px;
+        text-align: center;
+      }
+
+      .gender-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .gender-row .title {
+        margin: 0 0 5px 0;
+      }
+
+      .logo img {
+        width: 80px;
+      }
+
+      .cart img {
+        width: 45px;
+        height: 45px;
+      }
+      #comments{
+          width:90%;
+      }
+      input{
+          width:90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="order.php">Order Now!</a>
+      <a href="TrackOrderPage.php">Track Your Order!</a>
+      <a href="aboutUs.html">About Us</a>
+      <a href="reviews.php">reviews</a>
+      <a href="swf.php">SplitWithFriends!</a>
+    </div>
+
+    <div class="header-right">
+      <div class="cart">
+        <img src="imgs/Cart.png" alt="Shopping Cart">
+        <p>Cart</p>
+      </div>
+      <div class="logo">
+        <img src="imgs/pizza_logo.png" alt="NoY Pizza Logo">
+        <p>Contact us: 777777777777</p>
+      </div>
+    </div>
+  </header>
+
+  <form id="contactForm">
+    <h2>Contact Form</h2>
+
+    <label for="fullname">Full Name:</label>
+    <input type="text" id="fullname" name="fullname" required>
+
+    <label for="OrderID">Order Number:</label>
+    <input type="password" id="OrderID" name="OrderID" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" min="0" max="120">
+
+    <div class="gender-row">
+      <span class="title">Gender:</span>
+      <label for="male"><input type="radio" id="male" name="gender" value="Male"> Male</label>
+      <label for="female"><input type="radio" id="female" name="gender" value="Female"> Female</label>
+      <label for="other"><input type="radio" id="other" name="gender" value="Other"> Other</label>
+    </div>
+
+    <label for="country">Country:</label>
+    <select id="country" name="country">
+      <option value="israel">Israel</option>
+      <option value="usa">USA</option>
+      <option value="brazil">Brazil</option>
+      <option value="italy">Italy</option>
+      <option value="russia">Russia</option>
+      <option value="norway">Norway</option>
+      <option value="canada">Canada</option>
+      <option value="other">Other</option>
+    </select>
+
+    <label for="comments">Comments:</label>
+    <textarea id="comments" name="comments" rows="4" placeholder="Write your comments..."></textarea>
+
+    <label for="color">Favorite Color:</label>
+    <input type="color" id="color" name="color">
+
+    <label for="file">Attach a File:</label>
+    <input type="file" id="file" name="file">
+
+    <label for="search">Search a city:</label>
+    <input list="cities" name="search" id="search">
+    <datalist id="cities">
+      <option value="Tel Aviv">
+      <option value="Jerusalem">
+      <option value="Haifa">
+      <option value="Rishon LeZion">
+      <option value="Ra'anana">
+      <option value="Kfar Saba">
+      <option value="Ramat Gan">
+      <option value="Be'er Sheva">
+    </datalist>
+
+    <label>
+      <input type="checkbox" name="agree" required>
+      I agree to the terms of use
+    </label>
+
+    <button type="submit">Send</button>
+    <button type="reset">Reset</button>
+  </form>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("fullname").value.trim();
+      const orderId = document.getElementById("OrderID").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const age = document.getElementById("age").value;
+      const gender = document.querySelector('input[name="gender"]:checked')?.value || "";
+      const country = document.getElementById("country").value;
+      const comments = document.getElementById("comments").value.trim();
+      const color = document.getElementById("color").value;
+      const city = document.getElementById("search").value.trim();
+
+      const subject = `Message from ${name} (${email})`;
+      const body = `Name: ${name}
+Order Number: ${orderId}
+Email: ${email}
+Age: ${age}
+Gender: ${gender}
+Country: ${country}
+City: ${city}
+Favorite Color: ${color}
+
+Comments:
+${comments}`;
+
+      const mailtoLink = `mailto:ISEW@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+    });
+  </script>
+</body>
+</html>

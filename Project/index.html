@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pizza Order</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background-image: url("imgs/pizza_background3.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: rgba(245, 235, 220, 0.85);
+      backdrop-filter: blur(4px);
+      border-bottom: 2px solid burlywood;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: gold;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255, 215, 0, 0.3);
+      color: white;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo, .cart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: burlywood;
+      font-weight: bold;
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    }
+
+    .logo img {
+      width: 100px;
+      height: auto;
+    }
+
+    .cart img {
+      width: 50px;
+      height: 55px;
+    }
+
+    main {
+      flex-grow: 1;
+      position: relative;
+      padding: 30px;
+    }
+
+h2#welcome-title {
+  position: absolute;
+  top: -27px; /* was 7px */
+  left: 38%;
+  z-index: 101;
+  background-color: rgba(255,255,255,0.7);
+  padding: 5px 10px;
+  margin: 20px;
+  border-radius: 6px;
+  font-size: 24px;
+}
+
+    table {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      z-index: 100;
+      border-spacing: 20px;
+    }
+
+    video {
+      width: 400px;
+      height: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      object-fit: cover;
+    }
+
+    .wheel-section {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px black;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      z-index: 1000;
+    }
+
+    #wheel {
+      border: 5px solid gold;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    #spinBtn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: gold;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease;
+    }
+
+    #spinBtn:hover {
+      transform: scale(1.05);
+    }
+
+    #resultText {
+      margin-top: 20px;
+      font-size: 20px;
+      color: lightyellow;
+    }
+@media (max-width: 1600px) {
+  video {
+    width: 300px;
+    height: 300px;
+    display: block;
+    margin: 20px auto;
+  }
+
+  table {
+    top: auto;
+    right: auto;
+    position: relative;
+    margin: 20px auto;
+    border-spacing: 10px;
+  }
+
+  .wheel-section {
+    position: relative;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 300px;
+    z-index: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  h2#welcome-title {
+    font-size: 20px;
+    position: relative;
+    top: auto;
+    left: auto;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  video {
+    width: 240px;
+    height: 240px;
+    display: block;
+    margin: 20px auto;
+  }
+
+  table {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 20px auto;
+    width: 90%;
+  }
+
+  .wheel-section {
+    position: relative;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 280px;
+  }
+
+  #wheel {
+    width: 220px;
+    height: 220px;
+  }
+
+  #spinBtn {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  #resultText {
+    font-size: 16px;
+  }
+
+  .best-sellers h2,
+  .fun-facts h2 {
+    font-size: 20px;
+  }
+
+  .best-sellers ul,
+  .fun-facts ul {
+    font-size: 16px;
+    padding-left: 10px;
+  }
+
+  .best-sellers,
+  .fun-facts {
+    margin: 30px 10px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h2#welcome-title {
+    font-size: 18px;
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 15px auto;
+    text-align: center;
+  }
+
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+  }
+
+  table {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 20px auto;
+    width: 100%;
+  }
+
+  .wheel-section {
+    position: relative;
+    margin: 20px auto;
+    padding: 15px;
+    width: 95%;
+  }
+
+  #wheel {
+    width: 200px;
+    height: 200px;
+  }
+
+  #spinBtn {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  #resultText {
+    font-size: 14px;
+  }
+
+  .best-sellers h2,
+  .fun-facts h2 {
+    font-size: 18px;
+  }
+
+  .best-sellers ul,
+  .fun-facts ul {
+    font-size: 14px;
+  }
+
+  .best-sellers,
+  .fun-facts {
+    margin: 20px 8px;
+    padding: 12px;
+  }
+}
+    .best-sellers, .fun-facts {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 15px;
+  margin: 40px auto;
+  max-width: 700px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
+}
+.best-sellers h2, .fun-facts h2 {
+  color: gold;
+  text-shadow: 1px 1px 2px black;
+}
+.best-sellers ul, .fun-facts ul {
+  text-align: left;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+  list-style-position: inside;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="order.php">Order Now!</a>
+      <a href="TrackOrderPage.php">Track Your Order!</a>
+      <a href="aboutUs.html">About Us</a>
+      <a href="reviews.php">Reviews</a>
+      <a href="swf.php">SplitWithFriends!</a>
+    </div>
+    <div class="header-right">
+      <div class="cart">
+        <img src="imgs/Cart.png" alt="Shopping Cart">
+        <p>Cart</p>
+      </div>
+      <div class="logo">
+        <img src="imgs/pizza_logo.png" alt="NoY Pizza Logo">
+        <p>Contact us: 777777777777</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+       <script>
+    const now = new Date();
+    document.write("<div style='text-align:center; font-size:18px; background: rgba(255,255,255,0.8); margin-bottom:20px; padding:10px; border-radius:8px;'>🕒 Current Time: " + now.toLocaleTimeString() + "</div>");
+  </script>
+    <h2 id="welcome-title">Welcome To La-Cucaracha Pizza</h2>
+    <table>
+      <tr>
+        <td>
+          <video autoplay muted loop>
+            <source src="pizzaVid.mp4" type="video/mp4">
+          </video>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <video autoplay muted loop>
+            <source src="instaPizza.mp4" type="video/mp4">
+          </video>
+        </td>
+      </tr>
+    </table>
+
+    <div class="wheel-section">
+    <h2>🎁 Spin the Wheel and Win a Prize!</h2>
+    <canvas id="wheel" width="300" height="300"></canvas>
+    <button id="spinBtn">SPIN</button>
+    <p id="resultText"></p>
+  </div>
+  <div class="best-sellers">
+  <h2>🌟 Best Sellers</h2>
+  <ul>
+    <li>Large Pizza with Cheese, Mushrooms & Pepperoni</li>
+    <li>Medium Pizza with Olives & Onions</li>
+    <li>Small Pizza + Garlic Knot Combo</li>
+    <li>Extra Large Pizza with All Toppings</li>
+    <li>Big Bottle Drink + Cheese Bread</li>
+    <li>Medium Pizza + Can Drink + Garlic Knot</li>
+    <li>Small Pizza with Cheese & Mushrooms + Small Bottle</li>
+    <li>Large Pizza with Olives, Onions & Pepperoni</li>
+  </ul>
+</div>
+
+<div class="fun-facts">
+  <h2>🍕 Did You Know?</h2>
+  <ul>
+    <li>The world’s largest pizza was over 13,000 square feet.</li>
+    <li>October is National Pizza Month in the U.S.</li>
+    <li>The first pizzeria opened in Naples, Italy in 1738.</li>
+    <li>Pepperoni is the most popular pizza topping in the U.S.</li>
+    <li>Olives and mushrooms are top picks in Mediterranean countries.</li>
+    <li>94% of Americans eat pizza at least once a month.</li>
+    <li>The most expensive pizza costs over $12,000 and is topped with caviar and lobster.</li>
+    <li>Pizza delivery started in the 1880s when King Umberto I of Italy ordered one.</li>
+  </ul>
+</div>
+</main>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const overlay = document.getElementById("pizzaOverlay");
+
+      if (!sessionStorage.getItem("visitedBefore")) {
+        overlay.style.display = "flex";
+        sessionStorage.setItem("visitedBefore", "true");
+      } else {
+        overlay.style.display = "none";
+      }
+    });
+
+    function hideOverlay() {
+      const overlay = document.getElementById("pizzaOverlay");
+      overlay.classList.add("fade-out");
+      setTimeout(() => {
+        overlay.style.display = "none";
+      }, 1000);
+    }
+    const canvas = document.getElementById("wheel");
+  const ctx = canvas.getContext("2d");
+  const segments = ["Free Drink", "₪5 Off", "Better Luck!", "Free Dessert", "₪10 Off", "Try Again", "50% Off", "Free Pizza"];
+  const colors = ["#FF5733", "#FFD700", "#8AFF33", "#33FFF3", "#FF33B5", "#A633FF", "#FF8F33", "#33FF57"];
+  const spinBtn = document.getElementById("spinBtn");
+  const resultText = document.getElementById("resultText");
+
+  let deg = 0;
+  let isSpinning = false;
+
+  function drawWheel() {
+    const arcSize = (2 * Math.PI) / segments.length;
+    for (let i = 0; i < segments.length; i++) {
+      const angle = i * arcSize;
+      ctx.beginPath();
+      ctx.fillStyle = colors[i];
+      ctx.moveTo(150, 150);
+      ctx.arc(150, 150, 150, angle, angle + arcSize);
+      ctx.lineTo(150, 150);
+      ctx.fill();
+
+      ctx.save();
+      ctx.translate(150, 150);
+      ctx.rotate(angle + arcSize / 2);
+      ctx.textAlign = "right";
+      ctx.fillStyle = "black";
+      ctx.font = "bold 14px Arial";
+      ctx.fillText(segments[i], 140, 10);
+      ctx.restore();
+    }
+  }
+
+  drawWheel();
+
+  spinBtn.addEventListener("click", () => {
+    if (isSpinning) return;
+    isSpinning = true;
+    resultText.textContent = "";
+
+    const randDeg = Math.floor(3600 + Math.random() * 720); // more than 10 full spins
+    const duration = 4000;
+
+    const start = performance.now();
+
+    function animate(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      deg = randDeg * progress;
+      canvas.style.transform = `rotate(${deg}deg)`;
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        const actualDeg = (deg % 360);
+        const index = Math.floor((360 - actualDeg) / (360 / segments.length)) % segments.length;
+        resultText.innerHTML = `🎉 You got: <strong>${segments[index]}</strong>!<br><span style="font-size: 16px; color: gold;">(just kidding)</span>`;
+        isSpinning = false;
+      }
+    }
+
+    requestAnimationFrame(animate);
+  });
+  </script>
+</body>
+</html>
